@@ -1178,11 +1178,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .stroke-primary {
   stroke: var(--primary);
 }
-.grayscale  {
-    filter: grayscale(100%);
+.grayscale {
+    filter: grayscale(100%); /* La imagen empieza en escala de grises */
+    transition: filter 0.5s; /* Transición suave */
 }
-.hover-grayscale-0:hover .grayscale {
-    filter: grayscale(0%);
+.grayscale:hover {
+    filter: grayscale(0%); /* Al pasar el cursor sobre la imagen, se quita la escala de grises */
 }
 .navbar-scrolled {
     background-color: #ffffff;
@@ -2492,11 +2493,21 @@ iframe.wait-autoplay {
     --tw-translate-y:-0.5rem;
     transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-.hover\:scale-125:hover {
-    --tw-scale-x:1.25;
-    --tw-scale-y:1.25;
-    transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+.hover\:scale-125 {
+    transition: transform 0.5s ease; /* Añade una transición suave */
 }
+
+.hover\:scale-125:hover {
+    --tw-scale-x: 1.25;
+    --tw-scale-y: 1.25;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) 
+               rotate(var(--tw-rotate)) 
+               skewX(var(--tw-skew-x)) 
+               skewY(var(--tw-skew-y)) 
+               scaleX(var(--tw-scale-x)) 
+               scaleY(var(--tw-scale-y));
+}
+
 .hover\:bg-gray-900:hover {
     --tw-bg-opacity:1;
     background-color:rgb(28 28 28 / var(--tw-bg-opacity));
